@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvt50uagg861w"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_b4gc7"]
+[ext_resource type="Script" path="res://network.gd" id="b"]
+
+[node name="Test" type="Node"]
+script = ExtResource("1_b4gc7")
+
+[node name="Network" type="Node" parent="."]
+script = ExtResource("b")
+
+[node name="Login" type="Node2D" parent="."]
+
+[node name="emailInput" type="LineEdit" parent="Login"]
+offset_left = 420.0
+offset_top = 120.0
+offset_right = 1500.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 80
+placeholder_text = " email"
+
+[node name="passwordInput" type="LineEdit" parent="Login"]
+offset_left = 420.0
+offset_top = 300.0
+offset_right = 1500.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 80
+placeholder_text = " password"
+secret = true
+
+[node name="loginButton" type="Button" parent="Login"]
+offset_left = 420.0
+offset_top = 840.0
+offset_right = 1500.0
+offset_bottom = 960.0
+theme_override_font_sizes/font_size = 80
+text = "register/login"
+
+[node name="status" type="RichTextLabel" parent="Login"]
+offset_left = 420.0
+offset_top = 480.0
+offset_right = 1500.0
+offset_bottom = 720.0
+theme_override_font_sizes/normal_font_size = 80
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Game"]
+offset_left = 420.0
+offset_top = 120.0
+offset_right = 1500.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 80
+text = "Create Game"
+
+[connection signal="text_changed" from="Login/emailInput" to="." method="_on_email_input_text_changed"]
+[connection signal="text_changed" from="Login/passwordInput" to="." method="_on_password_input_text_changed"]
+[connection signal="button_up" from="Login/loginButton" to="." method="_on_login_button_button_up"]
